@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileCabinet.Database.ADO\FileCabinet.Database.ADO.csproj">
+      <Project>{966ccabe-9898-427e-9968-f692353bd299}</Project>
+      <Name>FileCabinet.Database.ADO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileCabinet.Database.Core\FileCabinet.Database.Core.csproj">
+      <Project>{ee11fd29-ebee-4b95-87ca-20ae06296400}</Project>
+      <Name>FileCabinet.Database.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

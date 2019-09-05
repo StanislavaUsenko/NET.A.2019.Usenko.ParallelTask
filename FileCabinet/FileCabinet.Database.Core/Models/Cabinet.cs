@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileCabinet.Database.Core.Models
 {
-    class Cabinet
+    public class Cabinet
     {
         public Cabinet(int id, string firstName, string lastName, DateTime dateBirth)
         {
@@ -15,11 +15,17 @@ namespace FileCabinet.Database.Core.Models
             this.LastName = lastName;
             this.DateBirth = dateBirth;
         }
+        public Cabinet() { }
 
         public int Id { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public DateTime DateBirth { get; private set; }
+
+        public override string ToString()
+        {
+            return Id + " " + FirstName + " " + LastName + " " + DateBirth.ToString();
+        }
 
     }
 }
