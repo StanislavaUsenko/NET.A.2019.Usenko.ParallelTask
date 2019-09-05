@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE11FD29-EBEE-4B95-87CA-20AE06296400}</ProjectGuid>
+    <ProjectGuid>{0B04910B-6474-4A6B-96E5-53718178CB0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileCabinet.Database.Core</RootNamespace>
-    <AssemblyName>FileCabinet.Database.Core</AssemblyName>
+    <RootNamespace>FileCabinet.Storage.Xml</RootNamespace>
+    <AssemblyName>FileCabinet.Storage.Xml</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IExport.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Models\Cabinet.cs" />
+    <Compile Include="Export\ExportCabinet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FileCabinet.Database.ADO\FileCabinet.Database.ADO.csproj">
+      <Project>{966ccabe-9898-427e-9968-f692353bd299}</Project>
+      <Name>FileCabinet.Database.ADO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileCabinet.Database.Core\FileCabinet.Database.Core.csproj">
+      <Project>{ee11fd29-ebee-4b95-87ca-20ae06296400}</Project>
+      <Name>FileCabinet.Database.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
