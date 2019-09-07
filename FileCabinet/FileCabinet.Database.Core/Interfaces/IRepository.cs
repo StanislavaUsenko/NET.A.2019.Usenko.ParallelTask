@@ -13,6 +13,5 @@ namespace FileCabinet.Database.Core.Interfaces
         bool Delete(T obj);
         List<T> GetAll();
         T GetById(int id);
-        T GetByTag(string tag, string str);
     }
 }

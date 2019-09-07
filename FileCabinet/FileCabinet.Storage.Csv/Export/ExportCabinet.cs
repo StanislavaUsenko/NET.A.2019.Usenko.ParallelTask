@@ -14,6 +14,10 @@ namespace FileCabinet.Storage.Csv.Export
 {
     public class ExportCabinet : IExport<Cabinet>
     {
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="path">path to file</param>
         public ExportCabinet(string path)
         {
             this.path = path;
@@ -21,6 +25,11 @@ namespace FileCabinet.Storage.Csv.Export
 
         private string path { get; set; }
 
+        /// <summary>
+        /// save all records from database table Cabinet to Csv file
+        /// </summary>
+        /// <param name="objects">records what need to save</param>
+        /// <returns>flag of success operation</returns>
         public bool SaveAll(List<Cabinet> objects)
         {
             if (objects == null)

@@ -12,6 +12,10 @@ namespace FileCabinet.Storage.Xml.Export
 {
     public class ExportCabinet : IExport<Cabinet>
     {
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="path">path to file</param>
         public ExportCabinet(string path)
         {
             this.path = path;
@@ -19,6 +23,11 @@ namespace FileCabinet.Storage.Xml.Export
 
         private string path { get; set; }
 
+        /// <summary>
+        /// save all records from database table Cabinet to XML file
+        /// </summary>
+        /// <param name="objects">records what need to save</param>
+        /// <returns>flag of success operation</returns>
         public bool SaveAll(List<Cabinet> objects)
         {
             if (objects == null)

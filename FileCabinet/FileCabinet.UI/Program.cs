@@ -16,7 +16,7 @@ namespace FileCabinet.UI
 {
     class Program
     {
-        static IRepository<Cabinet> cabinet = new CabinetRepository();
+        static CabinetRepository cabinet = new CabinetRepository();
 
         static void Main(string[] args)
         {
@@ -25,6 +25,9 @@ namespace FileCabinet.UI
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// menu intarface
+        /// </summary>
         static void Menu()
         {
             Console.WriteLine("************************************************************");
@@ -37,8 +40,8 @@ namespace FileCabinet.UI
             Console.WriteLine("6 - Purge");
             Console.WriteLine("7 - Export in csv");
             Console.WriteLine("8 - Export in xml");
-
-            Console.WriteLine("9 - Exit");
+            Console.WriteLine("9 - Find string in all fields");
+            Console.WriteLine("10 - Exit");
             string s = Console.ReadLine();
 
             switch (s)
@@ -68,6 +71,10 @@ namespace FileCabinet.UI
                     ExportToXml();
                     break;
                 case "9":
+                    Find();
+                    break;
+                case "10":
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("Entered wrong key, repeat please");
@@ -76,6 +83,24 @@ namespace FileCabinet.UI
             }
         }
 
+        /// <summary>
+        /// interface for find
+        /// </summary>
+        static void Find()
+        {
+            Console.WriteLine();
+            Console.WriteLine("write what you want to find:");
+            string s = Console.ReadLine();
+            List<Cabinet> cabinets = cabinet.Find(s);
+            Console.WriteLine($"Find {cabinets.Count} records");
+            foreach (var item in cabinets)
+                Console.WriteLine(item.ToString());
+            Menu();
+        }
+
+        /// <summary>
+        /// interface for all records
+        /// </summary>
         static void SelectAll()
         {
             List<Cabinet> list = cabinet.GetAll();
@@ -86,6 +111,9 @@ namespace FileCabinet.UI
             Menu();
         }
 
+        /// <summary>
+        /// interface for one record
+        /// </summary>
         static void SelectById()
         {
             Console.WriteLine("Enter Id:");
@@ -102,6 +130,9 @@ namespace FileCabinet.UI
             Menu();
         }
 
+        /// <summary>
+        /// interface for creating new record
+        /// </summary>
         static void WriteNewCabinet()
         {
             string patternForNames = @"^[а-яА-ЯёЁa-zA-Z]+$";
@@ -131,6 +162,9 @@ namespace FileCabinet.UI
             }
         }
 
+        /// <summary>
+        /// interface for update record
+        /// </summary>
         static void UpdateCabinet()
         {
             string patternForNames = @"^[а-яА-ЯёЁa-zA-Z]+$";
@@ -170,6 +204,9 @@ namespace FileCabinet.UI
             }
         }
 
+        /// <summary>
+        /// interface for deleting cabinet
+        /// </summary>
         static void DeleteCabinet()
         {
             List<Cabinet> list = cabinet.GetAll();
@@ -195,6 +232,9 @@ namespace FileCabinet.UI
             }
         }
 
+        /// <summary>
+        /// interface for clear database
+        /// </summary>
         static void DeleteAllCabinets()
         {
             List<Cabinet> list = cabinet.GetAll();
@@ -224,6 +264,9 @@ namespace FileCabinet.UI
             }
         }
 
+        /// <summary>
+        /// interface for expoting 
+        /// </summary>
         static void ExportToCsv()
         {
 
@@ -233,6 +276,10 @@ namespace FileCabinet.UI
             Console.WriteLine("Exporting is success");
             Menu();
         }
+
+        /// <summary>
+        /// interface for expoting 
+        /// </summary>
         static void ExportToXml()
         {
 

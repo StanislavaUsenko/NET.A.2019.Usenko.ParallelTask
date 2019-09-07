@@ -10,14 +10,29 @@ namespace FileCabinet.Database.ADO.Repositories
 {
     public abstract class BaseRepository
     {
-        public BaseRepository() {         }
+        /// <summary>
+        /// ctor
+        /// </summary>
+        public BaseRepository() { }
 
+        /// <summary>
+        /// private method for take conection string from config
+        /// </summary>
+        /// <returns></returns>
         private string SqlConnect()
         {
             string connection = "Data Source=DESKTOP-NCDA0GK;Initial Catalog=FileCabinet;Integrated Security=True";
             return connection;
         }
 
+        /// <summary>
+        /// method for read data from database with help ADO.Met
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sqlCommand">your sql command for request on database</param>
+        /// <param name="converter">your delegate for the correct output of information</param>
+        /// <param name="parameters">sql parameters for sql command</param>
+        /// <returns>returt list of data from database</returns>
         public List<T> GetData<T>(string sqlCommand, Func<System.Data.IDataReader, T> converter, List<SqlParameter> parameters)
         {
             try
@@ -52,7 +67,11 @@ namespace FileCabinet.Database.ADO.Repositories
 
         }
 
-
+        /// <summary>
+        /// method for write information on database with help ADO.NET
+        /// </summary>
+        /// <param name="sqlCommand">your sql command for request on database</param>
+        /// <param name="parameters">sql parameters for sql command</param>
         public void PostData(string sqlCommand, List<SqlParameter> parameters)
         {
             try
