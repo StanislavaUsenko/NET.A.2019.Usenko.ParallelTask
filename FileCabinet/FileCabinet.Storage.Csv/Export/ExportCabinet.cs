@@ -12,7 +12,7 @@ using FileCabinet.Database.Core.Interfaces;
 
 namespace FileCabinet.Storage.Csv.Export
 {
-    class ExportCabinet : IExport<Cabinet>
+    public class ExportCabinet : IExport<Cabinet>
     {
         public ExportCabinet(string path)
         {

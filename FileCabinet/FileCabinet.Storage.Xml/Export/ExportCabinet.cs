@@ -10,7 +10,7 @@ using System.IO;
 
 namespace FileCabinet.Storage.Xml.Export
 {
-    class ExportCabinet : IExport<Cabinet>
+    public class ExportCabinet : IExport<Cabinet>
     {
         public ExportCabinet(string path)
         {

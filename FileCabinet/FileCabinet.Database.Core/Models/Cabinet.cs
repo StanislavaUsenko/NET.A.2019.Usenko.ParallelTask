@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace FileCabinet.Database.Core.Models
 {
@@ -17,10 +18,10 @@ namespace FileCabinet.Database.Core.Models
         }
         public Cabinet() { }
 
-        public int Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public DateTime DateBirth { get; private set; }
+        public int Id { get; set; }
+        public string FirstName { get;  set; }
+        public string LastName { get;  set; }
+        public DateTime DateBirth { get; set; }
 
         public override string ToString()
         {

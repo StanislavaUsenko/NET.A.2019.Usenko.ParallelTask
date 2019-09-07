@@ -58,6 +58,14 @@
       <Project>{ee11fd29-ebee-4b95-87ca-20ae06296400}</Project>
       <Name>FileCabinet.Database.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileCabinet.Storage.Csv\FileCabinet.Storage.Csv.csproj">
+      <Project>{c331beae-18ba-4545-96f5-de975b6e7f6d}</Project>
+      <Name>FileCabinet.Storage.Csv</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileCabinet.Storage.Xml\FileCabinet.Storage.Xml.csproj">
+      <Project>{0b04910b-6474-4a6b-96e5-53718178cb0a}</Project>
+      <Name>FileCabinet.Storage.Xml</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

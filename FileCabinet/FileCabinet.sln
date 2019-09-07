@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCabinet.UI", "FileCabinet.UI\FileCabinet.UI.csproj", "{86CC3784-44DA-435B-A1B8-86670305E8FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B04910B-6474-4A6B-96E5-53718178CB0A} = {0B04910B-6474-4A6B-96E5-53718178CB0A}
+		{C331BEAE-18BA-4545-96F5-DE975B6E7F6D} = {C331BEAE-18BA-4545-96F5-DE975B6E7F6D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCabinet.Database.ADO", "FileCabinet.Database.ADO\FileCabinet.Database.ADO.csproj", "{966CCABE-9898-427E-9968-F692353BD299}"
 EndProject
