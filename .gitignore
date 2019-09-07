@@ -1,0 +1,11 @@
+FileCabinet/.vs
+FileCabinet/FileCabinet.Database.ADO/bin
+FileCabinet/FileCabinet.Database.ADO/obj
+FileCabinet/FileCabinet.Database.Core/bin
+FileCabinet/FileCabinet.Database.Core/obj
+FileCabinet/FileCabinet.Storage.Csv/bin
+FileCabinet/FileCabinet.Storage.Csv/obj
+FileCabinet/FileCabinet.Storage.Xml/bin
+FileCabinet/FileCabinet.Storage.Xml/obj
+FileCabinet/FileCabinet.UI/bin
+FileCabinet/FileCabinet.UI/obj

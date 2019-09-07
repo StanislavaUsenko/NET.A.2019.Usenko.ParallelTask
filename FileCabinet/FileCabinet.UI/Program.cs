@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FileCabinet.Database.ADO.Repositories;
 using FileCabinet.Database.Core.Models;
@@ -78,6 +79,28 @@ namespace FileCabinet.UI
                     Console.WriteLine("Information does not exist");
             }
             Menu();
+        }
+
+        static void WriteNewCabinet()
+        {
+            string patternForNames = @"^[а-яА-ЯёЁa-zA-Z]+$";
+            string patternForDate = @"[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])";
+
+            Console.WriteLine("Write first name for new cabinet:");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Write last name for new cabinet:");
+            string lastName = Console.ReadLine();
+            Console.WriteLine("Write date birth in format YYYY-MM-DD:");
+            string date = Console.ReadLine();
+
+            if (Regex.IsMatch(firstName,patternForNames,RegexOptions.IgnoreCase)&&
+                Regex.IsMatch(lastName,patternForNames,RegexOptions.IgnoreCase)&&
+                Regex.IsMatch(date, patternForDate))
+            {
+                cabine
+            }
+
+
         }
     }
 }
