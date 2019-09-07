@@ -34,7 +34,7 @@ namespace FileCabinet.UI
             Console.WriteLine("3 - Create new");
             Console.WriteLine("4 - Update");
             Console.WriteLine("5 - Delete");
-            Console.WriteLine("6 - Flush");
+            Console.WriteLine("6 - Purge");
             Console.WriteLine("7 - Export in csv");
             Console.WriteLine("8 - Export in xml");
 
@@ -210,7 +210,7 @@ namespace FileCabinet.UI
             if (choose.ToLower().Replace(" ",string.Empty) =="y")
             {
                 foreach(var item in list)
-                    cabinet.Delete(new Cabinet(item.Id, "", "", new DateTime()));
+                    cabinet.Delete(new Cabinet(item.Id, "", "", DateTime.Now.Date));
                 Console.WriteLine("Deleting is success");
             }
             else if(choose.ToLower().Replace(" ", string.Empty) == "n")

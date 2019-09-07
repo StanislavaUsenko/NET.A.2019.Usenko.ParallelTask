@@ -28,5 +28,9 @@ namespace FileCabinet.Database.Core.Models
             return Id + " " + FirstName + " " + LastName + " " + DateBirth.ToString();
         }
 
+        public override int GetHashCode()
+        {
+            return (Id + FirstName + LastName + DateBirth).GetHashCode();
+        }
     }
 }
