@@ -39,23 +39,9 @@ namespace FileCabinet.Storage.Csv.Export
                 using (var writer = new StreamWriter(path))
                 using (var csvWriter = new CsvWriter(writer))
                 {
-                    csvWriter.Configuration.Delimiter = ";";
-
-                    csvWriter.WriteField("id");
-                    csvWriter.WriteField("first name");
-                    csvWriter.WriteField("last name");
-                    csvWriter.WriteField("date birth");
-                    csvWriter.NextRecord();
-
-                    foreach (var obj in objects)
                     {
-                        csvWriter.WriteField(obj.Id);
-                        csvWriter.WriteField(obj.FirstName);
-                        csvWriter.WriteField(obj.LastName);
-                        csvWriter.WriteField(obj.DateBirth.ToString());
-                        csvWriter.NextRecord();
+                        csvWriter.WriteRecords(objects);
                     }
-                    writer.Flush();
 
                     return true;
                 }

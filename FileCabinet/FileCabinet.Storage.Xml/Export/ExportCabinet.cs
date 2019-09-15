@@ -44,7 +44,7 @@ namespace FileCabinet.Storage.Xml.Export
             }
             catch(Exception ex)
             {
-                throw new Exception();
+                throw new Exception(ex.Message);
             }
         }
     }

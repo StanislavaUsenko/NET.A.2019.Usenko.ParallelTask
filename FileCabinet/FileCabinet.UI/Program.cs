@@ -41,7 +41,9 @@ namespace FileCabinet.UI
             Console.WriteLine("7 - Export in csv");
             Console.WriteLine("8 - Export in xml");
             Console.WriteLine("9 - Find string in all fields");
-            Console.WriteLine("10 - Exit");
+            Console.WriteLine("10 - Import from csv");
+            Console.WriteLine("11 - Inport from xml");
+            Console.WriteLine("12 - Exit");
             string s = Console.ReadLine();
 
             switch (s)
@@ -74,6 +76,12 @@ namespace FileCabinet.UI
                     Find();
                     break;
                 case "10":
+                    ImportFromCsv();
+                    break;
+                case "11":
+                    ImportFromXML();
+                    break;
+                case "12":
                     Environment.Exit(0);
                     break;
                 default:
@@ -290,6 +298,37 @@ namespace FileCabinet.UI
             Menu();
         }
 
+        /// <summary>
+        /// interface for importing 
+        /// </summary>
+        static void ImportFromCsv()
+        {
+            IImport<Cabinet> importCsv = new Storage.Csv.Import.ImportCabinet("file.csv");
+            var cabinets = importCsv.ReadAll();
+            foreach (var item in cabinets)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("Importing is success");
+
+            Menu();
+        }
+
+        /// <summary>
+        /// interface for importing 
+        /// </summary>
+        static void ImportFromXML()
+        {
+            IImport<Cabinet> importXML = new Storage.Xml.Import.ImportCabinet("file.xml");
+            var cabinets = importXML.ReadAll();
+            foreach (var item in cabinets)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("Importing is success");
+
+            Menu();
+        }
 
 
     }
