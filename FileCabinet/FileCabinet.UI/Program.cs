@@ -45,6 +45,7 @@ namespace FileCabinet.UI
             Console.WriteLine("11 - Inport from xml");
             Console.WriteLine("12 - Exit");
             string s = Console.ReadLine();
+            Console.WriteLine();
 
             switch (s)
             {
@@ -103,6 +104,7 @@ namespace FileCabinet.UI
             Console.WriteLine($"Find {cabinets.Count} records");
             foreach (var item in cabinets)
                 Console.WriteLine(item.ToString());
+            Console.WriteLine();
             Menu();
         }
 
@@ -111,11 +113,13 @@ namespace FileCabinet.UI
         /// </summary>
         static void SelectAll()
         {
+            Console.WriteLine();
             List<Cabinet> list = cabinet.GetAll();
             foreach (var item in list)
             {
                 Console.WriteLine(item.ToString());
             }
+            Console.WriteLine();
             Menu();
         }
 
@@ -124,6 +128,7 @@ namespace FileCabinet.UI
         /// </summary>
         static void SelectById()
         {
+            Console.WriteLine();
             Console.WriteLine("Enter Id:");
             string s = Console.ReadLine();
             int id = 0;
@@ -135,6 +140,7 @@ namespace FileCabinet.UI
                 else
                     Console.WriteLine("Information does not exist");
             }
+            Console.WriteLine();
             Menu();
         }
 
@@ -146,6 +152,7 @@ namespace FileCabinet.UI
             string patternForNames = @"^[а-яА-ЯёЁa-zA-Z]+$";
             string patternForDate = @"[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])";
 
+            Console.WriteLine();
             Console.WriteLine("Write first name for new cabinet:");
             string firstName = Console.ReadLine();
             Console.WriteLine("Write last name for new cabinet:");
@@ -161,11 +168,14 @@ namespace FileCabinet.UI
                 Console.WriteLine();
                 Console.WriteLine("New cabinet is create");
                 Console.WriteLine();
+                Console.WriteLine();
                 Menu();
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("Somthing wrong, try again");
+                Console.WriteLine();
                 WriteNewCabinet();
             }
         }
@@ -178,6 +188,7 @@ namespace FileCabinet.UI
             string patternForNames = @"^[а-яА-ЯёЁa-zA-Z]+$";
             string patternForDate = @"[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])";
 
+            Console.WriteLine();
             List<Cabinet> list = cabinet.GetAll();
             foreach (var item in list)
             {
@@ -203,12 +214,15 @@ namespace FileCabinet.UI
                 Console.WriteLine();
                 Console.WriteLine("Cabinet is update");
                 Console.WriteLine();
+                Console.WriteLine();
                 Menu();
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("Somthing wrong, try again");
                 UpdateCabinet();
+                Console.WriteLine();
             }
         }
 
@@ -217,6 +231,7 @@ namespace FileCabinet.UI
         /// </summary>
         static void DeleteCabinet()
         {
+            Console.WriteLine();
             List<Cabinet> list = cabinet.GetAll();
             foreach (var item in list)
             {
@@ -232,10 +247,13 @@ namespace FileCabinet.UI
             {
                 if (cabinet.Delete(new Cabinet(id, "", "", DateTime.Now.Date)))
                     Console.WriteLine("Deleting is success");
+                Console.WriteLine();
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("Somthing wrong, try again");
+                Console.WriteLine();
                 DeleteCabinet();
             }
         }
@@ -245,6 +263,7 @@ namespace FileCabinet.UI
         /// </summary>
         static void DeleteAllCabinets()
         {
+            Console.WriteLine();
             List<Cabinet> list = cabinet.GetAll();
             foreach (var item in list)
             {
@@ -260,6 +279,8 @@ namespace FileCabinet.UI
                 foreach(var item in list)
                     cabinet.Delete(new Cabinet(item.Id, "", "", DateTime.Now.Date));
                 Console.WriteLine("Deleting is success");
+                Console.WriteLine();
+                Menu();
             }
             else if(choose.ToLower().Replace(" ", string.Empty) == "n")
             {
@@ -267,7 +288,9 @@ namespace FileCabinet.UI
             }       
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("Somthing wrong, try again");
+                Console.WriteLine();
                 DeleteAllCabinets();
             }
         }
@@ -290,11 +313,13 @@ namespace FileCabinet.UI
         /// </summary>
         static void ExportToXml()
         {
-
+            Console.WriteLine();
             IExport<Cabinet> exportCsv = new Storage.Xml.Export.ExportCabinet("file.xml");
             exportCsv.SaveAll(cabinet.GetAll());
 
             Console.WriteLine("Exporting is success");
+            Console.WriteLine();
+
             Menu();
         }
 
@@ -303,6 +328,8 @@ namespace FileCabinet.UI
         /// </summary>
         static void ImportFromCsv()
         {
+            Console.WriteLine();
+
             IImport<Cabinet> importCsv = new Storage.Csv.Import.ImportCabinet("file.csv");
             var cabinets = importCsv.ReadAll();
             foreach (var item in cabinets)
@@ -310,6 +337,7 @@ namespace FileCabinet.UI
                 Console.WriteLine(item.ToString());
             }
             Console.WriteLine("Importing is success");
+            Console.WriteLine();
 
             Menu();
         }
@@ -319,17 +347,18 @@ namespace FileCabinet.UI
         /// </summary>
         static void ImportFromXML()
         {
+            Console.WriteLine();
             IImport<Cabinet> importXML = new Storage.Xml.Import.ImportCabinet("file.xml");
             var cabinets = importXML.ReadAll();
             foreach (var item in cabinets)
             {
                 Console.WriteLine(item.ToString());
             }
+
             Console.WriteLine("Importing is success");
+            Console.WriteLine();
 
             Menu();
         }
-
-
     }
 }
